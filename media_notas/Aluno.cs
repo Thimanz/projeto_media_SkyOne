@@ -9,16 +9,15 @@ namespace media_notas
     internal class Aluno
     {
         private string? _nome;
-        public string? Nome
-        {
-            get
-            { return _nome; }
-        }
-        private List<double> _notas = new List<double>();
-        public List<double> Notas
-        {
-            get { return _notas; }
-        }
+        public string? Nome { get => _nome; }
+
+        private List<double> _notas = new List<double>(2);
+
+        private double _media = 0;
+        public double Media { get => _media; }
+
+        private string? _status;
+        public string? Status { get => _status; }
 
         public Aluno(string? nome) 
         {
@@ -28,6 +27,8 @@ namespace media_notas
         public void AddNota(double nota)
         {
             _notas.Add(nota);
+            _media = Queryable.Average(_notas.AsQueryable());
+            _status = _media >= 6.5 ? "Aprovado" : "Reprovado";
         }
     }
 }

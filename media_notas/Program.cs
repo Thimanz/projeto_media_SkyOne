@@ -1,20 +1,35 @@
 ﻿using media_notas;
 
-Console.WriteLine("Bem vindo ao teste 02, para iniciarmos, qual é o seu nome?");
-string? nome = Console.ReadLine();
-Aluno aluno = new Aluno(nome);
-for (int i = 0; true; i++)
+while (true)
 {
-    Console.WriteLine(aluno.Nome + " por favor, nos informe qual foi a sua nota na prova?");
-    double nota;
-    while (!double.TryParse(Console.ReadLine(), out nota))
+    //instanciar aluno
+    Console.WriteLine("Informe o nome do aluno:");
+    string? nome = Console.ReadLine();
+    Aluno aluno = new Aluno(nome);
+
+    //adicionar notas
+    Console.WriteLine("Qual foi a nota do primeiro semestre do aluno " + aluno.Nome + "?");
+    double p1;
+    while (!double.TryParse(Console.ReadLine(), out p1))
     {
         Console.Write("Digite uma nota válida: ");
     }
-    aluno.AddNota(nota);
-    Console.WriteLine("Seu nome é: " + nome);
-    Console.WriteLine("Quantidade de provas: " + aluno.Notas.Count);
-    Console.WriteLine("Sua média é: " + Queryable.Average(aluno.Notas.AsQueryable()));
+    aluno.AddNota(p1);
+
+    Console.WriteLine("Qual foi a nota do segundo semestre do aluno " + aluno.Nome + "?");
+    double p2;
+    while (!double.TryParse(Console.ReadLine(), out p2))
+    {
+        Console.Write("Digite uma nota válida: ");
+    }
+    aluno.AddNota(p2);
+
+    //mostrar dados do aluno
+    Console.WriteLine("Seu nome é: " + aluno.Nome);
+    Console.WriteLine("Sua média é: " + aluno.Media);
+    Console.WriteLine("O aluno foi: " + aluno.Status);
+
+    //finalizar programa ou repetir
     if (ConsoleUtil.finalizar() == ConsoleKey.S)
         return;
     Console.WriteLine();
