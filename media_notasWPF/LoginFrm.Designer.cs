@@ -94,7 +94,7 @@
             // 
             senhaError.AutoSize = true;
             senhaError.ForeColor = Color.FromArgb(192, 0, 0);
-            senhaError.Location = new Point(49, 127);
+            senhaError.Location = new Point(212, 112);
             senhaError.Name = "senhaError";
             senhaError.Size = new Size(122, 15);
             senhaError.TabIndex = 6;

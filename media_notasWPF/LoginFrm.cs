@@ -20,6 +20,9 @@ namespace media_notasWPF
             {
                 senhaError.Visible = true;
             }
+            if (senhaError.Visible || loginError.Visible) { return; }
+            var n = new NotasFrm();
+            n.Show();
         }
     }
 }

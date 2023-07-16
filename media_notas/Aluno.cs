@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace media_notas
 {
-    internal class Aluno
+    public class Aluno
     {
         private string? _nome;
         public string? Nome { get => _nome; }
