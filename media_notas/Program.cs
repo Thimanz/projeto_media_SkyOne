@@ -1,4 +1,5 @@
-﻿using media_notas;
+﻿using media_notas.Domain;
+using media_notas.Utils;
 
 while (true)
 {

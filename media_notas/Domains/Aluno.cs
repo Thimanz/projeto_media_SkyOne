@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace media_notas
+﻿namespace media_notas.Domain
 {
     public class Aluno
     {
@@ -12,6 +6,7 @@ namespace media_notas
         public string? Nome { get => _nome; }
 
         private List<double> _notas = new List<double>(2);
+        public List<double> Notas { get => _notas; }
 
         private double _media = 0;
         public double Media { get => _media; }
@@ -19,7 +14,7 @@ namespace media_notas
         private string? _status;
         public string? Status { get => _status; }
 
-        public Aluno(string? nome) 
+        public Aluno(string? nome)
         {
             _nome = nome;
         }
@@ -27,7 +22,7 @@ namespace media_notas
         public void AddNota(double nota)
         {
             _notas.Add(nota);
-            _media = Queryable.Average(_notas.AsQueryable());
+            _media = _notas.AsQueryable().Average();
             _status = _media >= 6.5 ? "Aprovado" : "Reprovado";
         }
     }

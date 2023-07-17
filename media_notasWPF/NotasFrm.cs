@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using media_notas;
+﻿using media_notas.Domain;
+using media_notas.Services;
 
 namespace media_notasWPF
 {
@@ -57,6 +49,10 @@ namespace media_notasWPF
                 status.ForeColor = Color.Red;
             }
             status.Text = aluno.Status;
+
+            //salvar aluno no banco de dados
+            AlunoService alunoService = new AlunoService();
+            alunoService.SalvarAluno(aluno);
         }
 
         private void limpar_Click(object sender, EventArgs e)
